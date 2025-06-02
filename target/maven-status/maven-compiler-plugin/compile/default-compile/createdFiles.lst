@@ -1,0 +1,9 @@
+com\clinic\model\User.class
+com\clinic\utils\Session.class
+com\clinic\database\DatabaseUtil.class
+com\clinic\dao\UserDao.class
+com\clinic\Main.class
+com\clinic\controller\DashboardController.class
+com\clinic\controller\LoginController.class
+com\clinic\controller\RegisterController.class
+com\clinic\controller\MainController.class
