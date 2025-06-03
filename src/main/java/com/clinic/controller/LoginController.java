@@ -1,8 +1,11 @@
 package com.clinic.controller;
 
+import java.io.IOException;
+
 import com.clinic.dao.UserDao;
 import com.clinic.model.User;
 import com.clinic.utils.Session;
+
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
@@ -12,13 +15,12 @@ import javafx.scene.control.PasswordField;
 import javafx.scene.control.TextField;
 import javafx.stage.Stage;
 
-import java.io.IOException;
-
 public class LoginController {
 
     @FXML private TextField txtUsername;
     @FXML private PasswordField txtPassword;
-    @FXML private Label lblMessage;
+    @FXML private Label errorLabel;
+    @FXML private Label successLabel;
 
     private UserDao userDao;
 
@@ -33,20 +35,26 @@ public class LoginController {
         String password = txtPassword.getText().trim();
 
         if (username.isEmpty() || password.isEmpty()) {
-            lblMessage.setText("Username dan password wajib diisi.");
+            errorLabel.setVisible(true);
+            errorLabel.setManaged(true);
+            errorLabel.setText("Username dan password wajib diisi.");
             return;
         }
 
         User user = userDao.findByUsername(username);
         if (user == null) {
-            lblMessage.setText("User tidak ditemukan.");
+            errorLabel.setVisible(true);
+            errorLabel.setManaged(true);
+            errorLabel.setText("User tidak ditemukan.");
             return;
         }
 
         // Hash input password lalu bandingkan
         String hashedInput = UserDao.hashPassword(password);
         if (!hashedInput.equals(user.getPasswordHash())) {
-            lblMessage.setText("Password salah.");
+            errorLabel.setVisible(true);
+            errorLabel.setManaged(true);
+            errorLabel.setText("Password salah.");
             return;
         }
 
@@ -58,11 +66,15 @@ public class LoginController {
             FXMLLoader loader = new FXMLLoader(getClass().getResource("/fxml/main.fxml"));
             Scene scene = new Scene(loader.load());
             Stage stage = (Stage) txtUsername.getScene().getWindow(); // stage yang sama
+            scene.getStylesheets().add(getClass().getResource("/css/style.css").toExternalForm());
             stage.setScene(scene);
             stage.setTitle("Aplikasi Klinik - Selamat Datang, " + user.getName());
+            stage.show();
         } catch (IOException e) {
             e.printStackTrace();
-            lblMessage.setText("Gagal memuat halaman utama.");
+            errorLabel.setVisible(true);
+            errorLabel.setManaged(true);
+            errorLabel.setText("Gagal memuat halaman utama.");
         }
     }
 
@@ -72,6 +84,7 @@ public class LoginController {
             FXMLLoader loader = new FXMLLoader(getClass().getResource("/fxml/register.fxml"));
             Scene scene = new Scene(loader.load());
             Stage stage = (Stage) txtUsername.getScene().getWindow();
+            scene.getStylesheets().add(getClass().getResource("/css/style.css").toExternalForm());
             stage.setScene(scene);
             stage.setTitle("Registrasi User");
         } catch (IOException e) {

@@ -1,51 +1,210 @@
-.sidebar {
-    -fx-background-color: #ffffff;
-    -fx-padding: 0 20px;
+/* ===== GENERAL STYLES ===== */
+.root {
+    -fx-font-family: "Segoe UI", Arial, sans-serif;
+    -fx-background-color: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
 }
 
-.title {
-    -fx-font-size: 24px;
+/* ===== CONTAINER STYLES ===== */
+.login-container, .register-container {
+    -fx-background-color: white;
+    -fx-background-radius: 15px;
+    -fx-effect: dropshadow(gaussian, rgba(0,0,0,0.2), 20, 0, 0, 10);
+    -fx-border-radius: 15px;
+}
+
+/* ===== HEADER SECTION ===== */
+.header-section {
+    -fx-padding: 0 0 10 0;
+}
+
+.title-label {
+    -fx-font-size: 28px;
     -fx-font-weight: bold;
-    -fx-text-fill: #344054;
-    -fx-padding: 32px 0;
+    -fx-text-fill: #2c3e50;
+    -fx-alignment: center;
 }
 
-.button {
-    -fx-background-color: transparent;
-    -fx-text-fill: #344054;
+.subtitle-label {
     -fx-font-size: 14px;
-    -fx-border: none;
-    -fx-padding: 8px 16px;
+    -fx-text-fill: #7f8c8d;
+    -fx-alignment: center;
 }
 
-.button:hover {
-    -fx-background-color: #e4e7ec;
-}
-
-/* Gaya dasar untuk semua tombol
-.button {
+.link-button {
     -fx-background-color: transparent;
-    -fx-text-fill: #333;
+    -fx-background-insets: 0;
+    -fx-padding: 0;
+    -fx-text-fill: #065FD4;
+    -fx-underline: true;
+    -fx-font-size: 13px;
+    -fx-font-family: "Segoe UI", sans-serif;
+}
+
+.link-button:hover {
+    -fx-text-fill: #0B3B8F;
+    -fx-cursor: hand;
+}
+
+.link-button:pressed {
+    -fx-text-fill: #041E4E;
+}
+
+.link-button:disabled {
+    -fx-text-fill: #A0A0A0;
+    -fx-underline: false;
+    -fx-cursor: default;
+}
+
+
+/* ===== FORM SECTION ===== */
+.form-section {
+    -fx-padding: 10 0 0 0;
+}
+
+.field-label {
     -fx-font-size: 14px;
-    -fx-padding: 8px 16px;
+    -fx-font-weight: bold;
+    -fx-text-fill: #34495e;
+}
+
+.input-field {
+    -fx-pref-height: 45px;
+    -fx-font-size: 14px;
+    -fx-background-color: #f8f9fa;
+    -fx-border-color: #e9ecef;
+    -fx-border-width: 2px;
+    -fx-border-radius: 8px;
+    -fx-background-radius: 8px;
+    -fx-padding: 0 15 0 15;
+    -fx-prompt-text-fill: #adb5bd;
+}
+
+.input-field:focused {
+    -fx-border-color: #667eea;
+    -fx-background-color: white;
+    -fx-effect: dropshadow(gaussian, rgba(102, 126, 234, 0.3), 5, 0, 0, 2);
+}
+
+.checkbox-field {
+    -fx-font-size: 12px;
+    -fx-text-fill: #495057;
+    -fx-text-alignment: justify;
+}
+
+.checkbox-field .box {
+    -fx-background-color: #f8f9fa;
+    -fx-border-color: #e9ecef;
+    -fx-border-width: 2px;
+    -fx-border-radius: 4px;
+    -fx-background-radius: 4px;
+}
+
+.checkbox-field:selected .box {
+    -fx-background-color: #667eea;
+    -fx-border-color: #667eea;
+}
+
+.checkbox-field:selected .mark {
+    -fx-background-color: white;
+}
+
+.primary-button {
+    -fx-background-color: #3498db;
+    -fx-text-fill: white;
+    -fx-font-size: 14px;
+    -fx-font-weight: bold;
+    -fx-padding: 8px 20px;
+    -fx-background-radius: 6px;
+    -fx-effect: dropshadow(gaussian, rgba(0,0,0,0.2), 4, 0, 0, 2);
+}
+
+.primary-button:hover {
+    -fx-background-color: #2980b9;
+    -fx-cursor: hand;
+}
+
+.primary-button:pressed {
+    -fx-background-color: #1c5980;
+    -fx-effect: dropshadow(gaussian, rgba(0,0,0,0.3), 2, 0, 0, 1);
+}
+
+/* ===== LABEL STYLES ===== */
+.normal-label {
+    -fx-font-size: 13px;
+    -fx-text-fill: #6c757d;
+}
+
+.link-label {
+    -fx-font-size: 13px;
+    -fx-text-fill: #667eea;
+    -fx-font-weight: bold;
+    -fx-cursor: hand;
+    -fx-underline: false;
+}
+
+.link-label:hover {
+    -fx-text-fill: #5a6fd8;
+    -fx-underline: true;
+}
+
+.error-label {
+    -fx-font-size: 12px;
+    -fx-text-fill: #e74c3c;
+    -fx-font-weight: bold;
+    -fx-background-color: #ffeaea;
+    -fx-padding: 8 12 8 12;
     -fx-background-radius: 5px;
-    -fx-border: 2px solid #333;
+    -fx-border-color: #f5c6cb;
+    -fx-border-width: 1px;
     -fx-border-radius: 5px;
-    -fx-effect: dropshadow(three-pass-box, rgba(0, 0, 0, 0.2), 3, 0, 0, 1);
-    -fx-transition: background-color 0.3s, -fx-border-color 0.3s;
 }
 
-.button:hover {
-    -fx-background-color: #f0f0f0;
-    -fx-border-color: #888;
+.success-label {
+    -fx-font-size: 12px;
+    -fx-text-fill: #27ae60;
+    -fx-font-weight: bold;
+    -fx-background-color: #eafaf1;
+    -fx-padding: 8 12 8 12;
+    -fx-background-radius: 5px;
+    -fx-border-color: #c3e6cb;
+    -fx-border-width: 1px;
+    -fx-border-radius: 5px;
 }
 
-.button:pressed {
-    -fx-background-color: #e0e0e0;
-    -fx-border-color: #555;
+/* ===== FOOTER SECTION ===== */
+.footer-section {
+    -fx-padding: 20 0 0 0;
 }
 
-.button:focused {
-    -fx-background-color: #d0d0d0;
-    -fx-border-color: #333;
-} */
+.separator {
+    -fx-background-color: #e9ecef;
+    -fx-pref-height: 1px;
+}
+
+/* ===== ANIMATIONS & TRANSITIONS ===== */
+.input-field, 
+.primary-button, 
+.link-label {
+    -fx-transition: all 0.3s ease;
+}
+
+/* ===== RESPONSIVE ADJUSTMENTS ===== */
+@media (max-width: 480px) {
+    .title-label {
+        -fx-font-size: 24px;
+    }
+    
+    .subtitle-label {
+        -fx-font-size: 12px;
+    }
+    
+    .input-field {
+        -fx-pref-height: 40px;
+        -fx-font-size: 13px;
+    }
+    
+    .primary-button {
+        -fx-font-size: 14px;
+        -fx-pref-height: 40px;
+    }
+}

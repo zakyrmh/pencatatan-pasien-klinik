@@ -18,12 +18,20 @@ import javafx.stage.Stage;
 
 public class RegisterController {
 
-    @FXML private TextField txtName;
-    @FXML private TextField txtUsername;
-    @FXML private TextField txtRole;
-    @FXML private PasswordField txtPassword;
-    @FXML private PasswordField txtConfirmPassword;
-    @FXML private Label lblMessage;
+    @FXML
+    private TextField txtName;
+    @FXML
+    private TextField txtUsername;
+    @FXML
+    private TextField txtRole;
+    @FXML
+    private PasswordField txtPassword;
+    @FXML
+    private PasswordField txtConfirmPassword;
+    @FXML
+    private Label errorLabel;
+    @FXML
+    private Label successLabel;
 
     private UserDao userDao;
 
@@ -41,18 +49,24 @@ public class RegisterController {
         String confirm = txtConfirmPassword.getText().trim();
 
         if (name.isEmpty() || username.isEmpty() || role.isEmpty() || password.isEmpty() || confirm.isEmpty()) {
-            lblMessage.setText("Semua field wajib diisi.");
+            errorLabel.setVisible(true);
+            errorLabel.setManaged(true);
+            errorLabel.setText("Semua field wajib diisi.");
             return;
         }
 
         if (!password.equals(confirm)) {
-            lblMessage.setText("Password dan konfirmasi tidak sama.");
+            errorLabel.setVisible(true);
+            errorLabel.setManaged(true);
+            errorLabel.setText("Password dan konfirmasi tidak sama.");
             return;
         }
 
         // Cek apakah username sudah ada
         if (userDao.findByUsername(username) != null) {
-            lblMessage.setText("Username sudah terdaftar.");
+            errorLabel.setVisible(true);
+            errorLabel.setManaged(true);
+            errorLabel.setText("Username sudah terdaftar.");
             return;
         }
 
@@ -71,7 +85,9 @@ public class RegisterController {
 
         boolean success = userDao.save(newUser);
         if (success) {
-            lblMessage.setText("Registrasi berhasil! Kembali ke login...");
+            successLabel.setVisible(true);
+            successLabel.setManaged(true);
+            successLabel.setText("Registrasi berhasil! Kembali ke login...");
             // Delay singkat lalu ke login
             new Thread(() -> {
                 try {
@@ -79,10 +95,13 @@ public class RegisterController {
                     javafx.application.Platform.runLater(() -> {
                         goToLogin(null);
                     });
-                } catch (InterruptedException ignored) {}
+                } catch (InterruptedException ignored) {
+                }
             }).start();
         } else {
-            lblMessage.setText("Gagal menyimpan user. Coba lagi.");
+            errorLabel.setVisible(true);
+            errorLabel.setManaged(true);
+            errorLabel.setText("Gagal menyimpan user. Coba lagi.");
         }
     }
 
@@ -92,6 +111,7 @@ public class RegisterController {
             FXMLLoader loader = new FXMLLoader(getClass().getResource("/fxml/login.fxml"));
             Scene scene = new Scene(loader.load());
             Stage stage = (Stage) txtName.getScene().getWindow();
+            scene.getStylesheets().add(getClass().getResource("/css/style.css").toExternalForm());
             stage.setScene(scene);
             stage.setTitle("Login");
         } catch (IOException e) {

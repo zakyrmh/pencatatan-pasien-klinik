@@ -1,14 +1,16 @@
 package com.clinic.controller;
 
+import java.io.IOException;
+
 import com.clinic.utils.Session;
+
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
 import javafx.scene.Scene;
 import javafx.scene.control.Label;
 import javafx.stage.Stage;
-
-import java.io.IOException;
+import javafx.stage.StageStyle;
 
 public class MainController {
 
@@ -20,17 +22,28 @@ public class MainController {
             redirectToLogin();
             return;
         }
-        String name = Session.getInstance().getUser().getName();
-        lblWelcome.setText("Selamat datang, " + name + "!");
+
+        // Hindari NullPointerException jika lblWelcome tidak terhubung dengan FXML
+        if (lblWelcome != null) {
+            String name = Session.getInstance().getUser().getName();
+            lblWelcome.setText("Selamat datang, " + name + "!");
+        } else {
+            System.err.println("Label 'lblWelcome' tidak ditemukan di FXML.");
+        }
     }
 
     private void redirectToLogin() {
         try {
             FXMLLoader loader = new FXMLLoader(getClass().getResource("/fxml/login.fxml"));
             Scene scene = new Scene(loader.load());
-            Stage stage = (Stage) lblWelcome.getScene().getWindow();
+            Stage stage = (Stage) Stage.getWindows().filtered(window -> window.isShowing()).get(0);
+            scene.getStylesheets().add(getClass().getResource("/css/style.css").toExternalForm());
             stage.setScene(scene);
             stage.setTitle("Login");
+
+            // Pastikan stage bisa di-maximize
+            stage.setResizable(true);
+            stage.initStyle(StageStyle.DECORATED);
         } catch (IOException e) {
             e.printStackTrace();
         }
