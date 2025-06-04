@@ -39,10 +39,10 @@ public class MainController {
             Stage stage = (Stage) Stage.getWindows().filtered(window -> window.isShowing()).get(0);
             scene.getStylesheets().add(getClass().getResource("/css/style.css").toExternalForm());
             stage.setScene(scene);
+            stage.setMaximized(true);
             stage.setTitle("Login");
+            stage.show();
 
-            // Pastikan stage bisa di-maximize
-            stage.setResizable(true);
             stage.initStyle(StageStyle.DECORATED);
         } catch (IOException e) {
             e.printStackTrace();

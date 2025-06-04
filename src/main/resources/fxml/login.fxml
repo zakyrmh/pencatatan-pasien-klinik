@@ -11,7 +11,7 @@
    fx:controller="com.clinic.controller.LoginController"
    stylesheets="@styles.css"
    alignment="CENTER">
-      <VBox 
+      <VBox
          fx:id="loginContainer"
          alignment="CENTER" 
          styleClass="login-container" 
@@ -24,7 +24,7 @@
             <VBox alignment="CENTER" spacing="10.0" styleClass="header-section">
                <children>
                   <Label styleClass="title-label" text="Login" />
-                  <Label styleClass="subtitle-label" text="Join us today! It's free and easy" />
+                  <Label styleClass="subtitle-label" text="Welcome back, please login" />
                </children>
             </VBox>
             
@@ -34,14 +34,14 @@
                   <VBox spacing="8.0">
                      <children>
                         <Label styleClass="field-label" text="Username" />
-                        <TextField fx:id="txtUsername" promptText="Choose a username" styleClass="input-field" />
+                        <TextField fx:id="txtUsername" promptText="Enter username" styleClass="input-field" />
                      </children>
                   </VBox>
                   
                   <VBox spacing="8.0">
                      <children>
                         <Label styleClass="field-label" text="Password" />
-                        <PasswordField fx:id="txtPassword" promptText="Create a strong password" styleClass="input-field" />
+                        <PasswordField fx:id="txtPassword" promptText="Enter password" styleClass="input-field" />
                      </children>
                   </VBox>
                   
@@ -70,7 +70,7 @@
                   <Separator prefWidth="300.0" styleClass="separator" />
                   <HBox alignment="CENTER" spacing="5.0">
                      <children>
-                        <Label styleClass="normal-label" text="Already have an account?" />
+                        <Label styleClass="normal-label" text="Don't have an account yet?" />
                         <Button fx:id="signUpButton"
                            text="Sign Up"
                            onAction="#goToRegister"

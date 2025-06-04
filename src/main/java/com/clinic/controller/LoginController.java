@@ -17,10 +17,14 @@ import javafx.stage.Stage;
 
 public class LoginController {
 
-    @FXML private TextField txtUsername;
-    @FXML private PasswordField txtPassword;
-    @FXML private Label errorLabel;
-    @FXML private Label successLabel;
+    @FXML
+    private TextField txtUsername;
+    @FXML
+    private PasswordField txtPassword;
+    @FXML
+    private Label errorLabel;
+    @FXML
+    private Label successLabel;
 
     private UserDao userDao;
 
@@ -65,10 +69,11 @@ public class LoginController {
         try {
             FXMLLoader loader = new FXMLLoader(getClass().getResource("/fxml/main.fxml"));
             Scene scene = new Scene(loader.load());
-            Stage stage = (Stage) txtUsername.getScene().getWindow(); // stage yang sama
+            Stage stage = (Stage) txtUsername.getScene().getWindow();
             scene.getStylesheets().add(getClass().getResource("/css/style.css").toExternalForm());
             stage.setScene(scene);
-            stage.setTitle("Aplikasi Klinik - Selamat Datang, " + user.getName());
+            stage.setTitle("My Clinic - Dashboard");
+            stage.setMaximized(true);
             stage.show();
         } catch (IOException e) {
             e.printStackTrace();
@@ -78,14 +83,17 @@ public class LoginController {
         }
     }
 
+    // Pindah ke halaman register
     @FXML
     private void goToRegister(ActionEvent event) {
         try {
             FXMLLoader loader = new FXMLLoader(getClass().getResource("/fxml/register.fxml"));
             Scene scene = new Scene(loader.load());
             Stage stage = (Stage) txtUsername.getScene().getWindow();
+
             scene.getStylesheets().add(getClass().getResource("/css/style.css").toExternalForm());
             stage.setScene(scene);
+
             stage.setTitle("Registrasi User");
         } catch (IOException e) {
             e.printStackTrace();

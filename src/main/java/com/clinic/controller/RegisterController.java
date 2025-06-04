@@ -111,9 +111,12 @@ public class RegisterController {
             FXMLLoader loader = new FXMLLoader(getClass().getResource("/fxml/login.fxml"));
             Scene scene = new Scene(loader.load());
             Stage stage = (Stage) txtName.getScene().getWindow();
+
             scene.getStylesheets().add(getClass().getResource("/css/style.css").toExternalForm());
             stage.setScene(scene);
+            
             stage.setTitle("Login");
+            stage.show();
         } catch (IOException e) {
             e.printStackTrace();
         }

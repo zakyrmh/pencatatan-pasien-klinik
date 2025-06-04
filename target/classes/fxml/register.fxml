@@ -23,7 +23,7 @@
             <VBox alignment="CENTER" spacing="10.0" styleClass="header-section">
                <children>
                   <Label styleClass="title-label" text="Create Account" />
-                  <Label styleClass="subtitle-label" text="Join us today! It's free and easy" />
+                  <Label styleClass="subtitle-label" text="Join us today! Please register yourself" />
                </children>
             </VBox>
             
