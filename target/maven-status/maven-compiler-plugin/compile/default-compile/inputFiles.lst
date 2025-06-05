@@ -1,8 +1,12 @@
 C:\Users\LENOVO\Documents\Programming\Project\pencatatan-pasien-klinik\src\main\java\com\clinic\database\DatabaseUtil.java
 C:\Users\LENOVO\Documents\Programming\Project\pencatatan-pasien-klinik\src\main\java\com\clinic\controller\LoginController.java
+C:\Users\LENOVO\Documents\Programming\Project\pencatatan-pasien-klinik\src\main\java\com\clinic\controller\PatientController.java
 C:\Users\LENOVO\Documents\Programming\Project\pencatatan-pasien-klinik\src\main\java\com\clinic\controller\MainController.java
+C:\Users\LENOVO\Documents\Programming\Project\pencatatan-pasien-klinik\src\main\java\com\clinic\view\PatientView.java
 C:\Users\LENOVO\Documents\Programming\Project\pencatatan-pasien-klinik\src\main\java\com\clinic\utils\Session.java
 C:\Users\LENOVO\Documents\Programming\Project\pencatatan-pasien-klinik\src\main\java\com\clinic\dao\UserDao.java
 C:\Users\LENOVO\Documents\Programming\Project\pencatatan-pasien-klinik\src\main\java\com\clinic\model\User.java
+C:\Users\LENOVO\Documents\Programming\Project\pencatatan-pasien-klinik\src\main\java\com\clinic\dao\PatientDAO.java
 C:\Users\LENOVO\Documents\Programming\Project\pencatatan-pasien-klinik\src\main\java\com\clinic\Main.java
 C:\Users\LENOVO\Documents\Programming\Project\pencatatan-pasien-klinik\src\main\java\com\clinic\controller\RegisterController.java
+C:\Users\LENOVO\Documents\Programming\Project\pencatatan-pasien-klinik\src\main\java\com\clinic\model\Patient.java

@@ -9,13 +9,11 @@
    xmlns="http://javafx.com/javafx/11.0.1" 
    xmlns:fx="http://javafx.com/fxml/1" 
    fx:controller="com.clinic.controller.LoginController"
-   stylesheets="@styles.css"
    alignment="CENTER">
       <VBox
          fx:id="loginContainer"
          alignment="CENTER" 
          styleClass="login-container" 
-         stylesheets="@styles.css"
          prefWidth="350"
          maxWidth="350"
          maxHeight="500">
@@ -23,8 +21,8 @@
             <!-- Header -->
             <VBox alignment="CENTER" spacing="10.0" styleClass="header-section">
                <children>
-                  <Label styleClass="title-label" text="Login" />
-                  <Label styleClass="subtitle-label" text="Welcome back, please login" />
+                  <Label styleClass="title" text="Login" />
+                  <Label styleClass="subtitle" text="Welcome back, please login" />
                </children>
             </VBox>
             

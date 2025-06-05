@@ -67,7 +67,7 @@ public class LoginController {
 
         // Buka halaman utama (main.fxml)
         try {
-            FXMLLoader loader = new FXMLLoader(getClass().getResource("/fxml/main.fxml"));
+            FXMLLoader loader = new FXMLLoader(getClass().getResource("/fxml/PatientView.fxml"));
             Scene scene = new Scene(loader.load());
             Stage stage = (Stage) txtUsername.getScene().getWindow();
             scene.getStylesheets().add(getClass().getResource("/css/style.css").toExternalForm());

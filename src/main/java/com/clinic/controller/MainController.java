@@ -4,9 +4,11 @@ import java.io.IOException;
 
 import com.clinic.utils.Session;
 
+import javafx.application.Platform;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
+import javafx.scene.Node;
 import javafx.scene.Scene;
 import javafx.scene.control.Label;
 import javafx.stage.Stage;
@@ -14,7 +16,8 @@ import javafx.stage.StageStyle;
 
 public class MainController {
 
-    @FXML private Label lblWelcome;
+    @FXML
+    private Label lblWelcome;
 
     public void initialize() {
         // Pastikan user sudah login; jika tidak, redirect ke login
@@ -54,5 +57,45 @@ public class MainController {
         // Hapus session, kembali ke login
         Session.getInstance().clear();
         redirectToLogin();
+    }
+
+    @FXML
+    private void goToPatient(ActionEvent event) {
+        try {
+            FXMLLoader loader = new FXMLLoader(getClass().getResource("/fxml/patient.fxml"));
+
+            // Dapatkan Stage yang benar
+            Stage stage = (Stage) ((Node) event.getSource()).getScene().getWindow();
+
+            // Simpan ukuran dan posisi stage saat ini
+            double currentWidth = stage.getWidth();
+            double currentHeight = stage.getHeight();
+            double currentX = stage.getX();
+            double currentY = stage.getY();
+            boolean wasMaximized = stage.isMaximized();
+
+            // Load scene baru
+            Scene newScene = new Scene(loader.load());
+            newScene.getStylesheets().add(getClass().getResource("/css/style.css").toExternalForm());
+
+            // Set scene baru
+            stage.setScene(newScene);
+
+            // Restore ukuran dan posisi
+            Platform.runLater(() -> {
+                if (wasMaximized) {
+                    stage.setMaximized(true);
+                } else {
+                    stage.setX(currentX);
+                    stage.setY(currentY);
+                    stage.setWidth(currentWidth);
+                    stage.setHeight(currentHeight);
+                }
+            });
+
+            stage.setTitle("Patients");
+        } catch (IOException e) {
+            e.printStackTrace();
+        }
     }
 }

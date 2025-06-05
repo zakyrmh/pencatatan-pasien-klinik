@@ -1,6 +1,5 @@
 .root {
     -fx-font-family: "Segoe UI", Arial, sans-serif;
-    -fx-background-color: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
     -color-50: #EFF8FF;
     -color-100: #DCEEFD;
     -color-200: #C0E3FD;
@@ -14,7 +13,6 @@
     -color-950: #182e53;
 }
 
-
 .login-container, .register-container {
     -fx-background-color: white;
     -fx-background-radius: 15px;
@@ -26,14 +24,14 @@
     -fx-padding: 0 0 10 0;
 }
 
-.title-label {
+.title {
     -fx-font-size: 28px;
     -fx-font-weight: bold;
     -fx-text-fill: #2c3e50;
     -fx-alignment: center;
 }
 
-.subtitle-label {
+.subtitle {
     -fx-font-size: 14px;
     -fx-text-fill: #7f8c8d;
     -fx-alignment: center;
@@ -193,11 +191,11 @@
 }
 
 @media (max-width: 480px) {
-    .title-label {
+    .title {
         -fx-font-size: 24px;
     }
     
-    .subtitle-label {
+    .subtitle {
         -fx-font-size: 12px;
     }
     
@@ -210,13 +208,6 @@
         -fx-font-size: 14px;
         -fx-pref-height: 40px;
     }
-}
-
-.sidebar {
-    -fx-background-color: #ffffff;
-    -fx-background-radius: 0 10 10 0;
-    -fx-effect: dropshadow(gaussian, rgba(0, 0, 0, 0.25), 10, 0.0, 0, 2
-    );
 }
 
 .logo {
@@ -233,32 +224,6 @@
     -fx-padding: 20 0 0 0;
 }
 
-.nav-button {
-    -fx-background-color: transparent;
-    -fx-text-fill: #000000;
-    -fx-font-size: 14px;
-    -fx-alignment: CENTER_LEFT;
-    -fx-padding: 10 20;
-    -fx-border-color: transparent;
-}
-
-.nav-button:hover {
-    -fx-background-color: -color-600;
-    -fx-text-fill: #ffffff;
-    -fx-cursor: hand;
-}
-
-.nav-button:pressed {
-    -fx-background-color: -color-700;
-    -fx-text-fill: #ffffff;
-}
-
-.nav-button:selected,
-.nav-button.active {
-    -fx-background-color: #1ABC9C;
-    -fx-text-fill: #FFFFFF;
-}
-
 #logoutButton {
     -fx-text-fill: #E74C3C;
 }
@@ -266,4 +231,124 @@
 #logoutButton:hover {
     -fx-background-color: #C0392B;
     -fx-text-fill: #FFFFFF;
+}
+
+/* ================================================ */
+
+.main-pane {
+    -fx-background-color: #f5f5f5;
+}
+
+.header {
+    -fx-background-color: #2196F3;
+    -fx-alignment: center-left;
+}
+
+.title-label {
+    -fx-font-size: 24px;
+    -fx-text-fill: white;
+    -fx-font-weight: bold;
+}
+
+.profile-section {
+    -fx-alignment: center-right;
+}
+
+.profile-image {
+    -fx-border-radius: 50%;
+    -fx-background-radius: 50%;
+}
+
+.profile-dropdown {
+    -fx-background-color: #ffffff;
+    -fx-font-size: 13px;
+    -fx-pref-width: 120px;
+}
+
+.profile-dropdown .list-cell {
+    -fx-padding: 5px;
+}
+
+.profile-dropdown .list-cell:hover {
+    -fx-background-color: #e3f2fd;
+}
+
+.sidebar {
+    -fx-background-color: #ffffff;
+    -fx-border-color: #e0e0e0;
+    -fx-border-width: 0 1 0 0;
+    -fx-min-width: 200px;
+    -fx-pref-width: 200px;
+    -fx-effect: dropshadow(gaussian, rgba(0, 0, 0, 0.25), 10, 0.0, 0, 2
+    );
+}
+
+.nav-button {
+    -fx-background-color: transparent;
+    -fx-text-fill: #333333;
+    -fx-font-size: 14px;
+    -fx-alignment: center-left;
+    -fx-padding: 10px 20px;
+    -fx-cursor: hand;
+    -fx-pref-width: 180px;
+}
+
+.nav-button:hover {
+    -fx-background-color: #e3f2fd;
+}
+
+.nav-button.active {
+    -fx-background-color: #2196F3;
+    -fx-text-fill: white;
+}
+
+.patient-table {
+    -fx-background-color: white;
+    -fx-border-color: #e0e0e0;
+    -fx-border-width: 1;
+    -fx-pref-width: 100%;
+    -fx-max-width: Infinity;
+}
+
+.patient-table .column-header {
+    -fx-background-color: #f0f0f0;
+    -fx-font-weight: bold;
+    -fx-font-size: 14px;
+}
+
+.patient-table .table-cell {
+    -fx-alignment: center-left;
+    -fx-font-size: 13px;
+    -fx-padding: 8px;
+}
+
+.patient-table .table-row-cell:odd {
+    -fx-background-color: #f9f9f9;
+}
+
+.patient-table .table-row-cell:even {
+    -fx-background-color: white;
+}
+
+.patient-table .table-row-cell:hover {
+    -fx-background-color: #e3f2fd;
+}
+
+.button-pane {
+    -fx-background-color: #ffffff;
+    -fx-border-color: #e0e0e0;
+    -fx-border-width: 1 0 0 0;
+    -fx-alignment: center-left;
+}
+
+.action-button {
+    -fx-background-color: #2196F3;
+    -fx-text-fill: white;
+    -fx-font-size: 14px;
+    -fx-padding: 8px 16px;
+    -fx-cursor: hand;
+}
+
+.action-button:hover {
+    -fx-background-color: #1976D2;
 }

@@ -1,0 +1,44 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.*?>
+<?import javafx.scene.layout.*?>
+<?import javafx.collections.FXCollections?>
+<?import java.lang.String?>
+
+<VBox fx:id="root" spacing="10" xmlns="http://javafx.com/javafx" xmlns:fx="http://javafx.com/fxml" 
+      fx:controller="com.clinic.view.PatientView">
+    <TextField fx:id="medicalRecordField" promptText="Medical Record"/>
+    <TextField fx:id="nameField" promptText="Name"/>
+    <DatePicker fx:id="dateOfBirthPicker"/>
+    <ComboBox fx:id="genderCombo" promptText="Select Gender">
+        <items>
+            <FXCollections fx:factory="observableArrayList">
+                <String fx:value="Male"/>
+                <String fx:value="Female"/>
+            </FXCollections>
+        </items>
+    </ComboBox>
+    <TextField fx:id="addressField" promptText="Address"/>
+    <TextField fx:id="phoneField" promptText="Phone"/>
+    <TextField fx:id="identityNumberField" promptText="Identity Number"/>
+    <DatePicker fx:id="registeredAtPicker"/>
+    <HBox spacing="10">
+        <Button fx:id="addButton" text="Add" onAction="#addPatient"/>
+        <Button fx:id="updateButton" text="Update" onAction="#updatePatient"/>
+        <Button fx:id="deleteButton" text="Delete" onAction="#deletePatient"/>
+        <Button fx:id="clearButton" text="Clear" onAction="#clearFields"/>
+    </HBox>
+    <TableView fx:id="patientTable">
+        <columns>
+            <TableColumn fx:id="idColumn" text="ID"/>
+            <TableColumn fx:id="medicalRecordColumn" text="Medical Record"/>
+            <TableColumn fx:id="nameColumn" text="Name"/>
+            <TableColumn fx:id="dateOfBirthColumn" text="Date of Birth"/>
+            <TableColumn fx:id="genderColumn" text="Gender"/>
+            <TableColumn fx:id="addressColumn" text="Address"/>
+            <TableColumn fx:id="phoneColumn" text="Phone"/>
+            <TableColumn fx:id="identityNumberColumn" text="Identity Number"/>
+            <TableColumn fx:id="registeredAtColumn" text="Registered At"/>
+        </columns>
+    </TableView>
+</VBox>

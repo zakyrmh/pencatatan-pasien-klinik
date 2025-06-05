@@ -13,7 +13,6 @@
          fx:id="registerContainer"
          alignment="CENTER" 
          styleClass="register-container" 
-         stylesheets="@styles.css"
          prefWidth="350"
          maxWidth="350"
          maxHeight="750"
@@ -22,8 +21,8 @@
             <!-- Header -->
             <VBox alignment="CENTER" spacing="10.0" styleClass="header-section">
                <children>
-                  <Label styleClass="title-label" text="Create Account" />
-                  <Label styleClass="subtitle-label" text="Join us today! Please register yourself" />
+                  <Label styleClass="title" text="Create Account" />
+                  <Label styleClass="subtitle" text="Join us today! Please register yourself" />
                </children>
             </VBox>
             
