@@ -70,7 +70,7 @@ public class LoginController {
             FXMLLoader loader = new FXMLLoader(getClass().getResource("/fxml/PatientView.fxml"));
             Scene scene = new Scene(loader.load());
             Stage stage = (Stage) txtUsername.getScene().getWindow();
-            scene.getStylesheets().add(getClass().getResource("/css/style.css").toExternalForm());
+            scene.getStylesheets().add(getClass().getResource("/css/PatientStyle.css").toExternalForm());
             stage.setScene(scene);
             stage.setTitle("My Clinic - Dashboard");
             stage.setMaximized(true);
@@ -87,7 +87,7 @@ public class LoginController {
     @FXML
     private void goToRegister(ActionEvent event) {
         try {
-            FXMLLoader loader = new FXMLLoader(getClass().getResource("/fxml/register.fxml"));
+            FXMLLoader loader = new FXMLLoader(getClass().getResource("/fxml/RegisterView.fxml"));
             Scene scene = new Scene(loader.load());
             Stage stage = (Stage) txtUsername.getScene().getWindow();
 

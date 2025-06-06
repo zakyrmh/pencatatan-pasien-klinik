@@ -108,7 +108,7 @@ public class RegisterController {
     @FXML
     private void goToLogin(ActionEvent event) {
         try {
-            FXMLLoader loader = new FXMLLoader(getClass().getResource("/fxml/login.fxml"));
+            FXMLLoader loader = new FXMLLoader(getClass().getResource("/fxml/LoginView.fxml"));
             Scene scene = new Scene(loader.load());
             Stage stage = (Stage) txtName.getScene().getWindow();
 
