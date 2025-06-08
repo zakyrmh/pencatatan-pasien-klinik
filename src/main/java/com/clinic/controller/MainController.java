@@ -53,13 +53,6 @@ public class MainController {
     }
 
     @FXML
-    private void handleLogout(ActionEvent event) {
-        // Hapus session, kembali ke login
-        Session.getInstance().clear();
-        redirectToLogin();
-    }
-
-    @FXML
     private void goToPatient(ActionEvent event) {
         try {
             FXMLLoader loader = new FXMLLoader(getClass().getResource("/fxml/patient.fxml"));

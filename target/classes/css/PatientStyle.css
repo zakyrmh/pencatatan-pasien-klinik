@@ -224,3 +224,47 @@
     -fx-background-color: #ffc107;
     -fx-text-fill: white;
 }
+
+.profil-menu-button {
+    -fx-background-color: transparent;
+    -fx-padding: 0;
+    -fx-border-color: transparent;
+}
+
+.profil-menu-button .arrow-button {
+    -fx-padding: 0;
+}
+
+.profil-menu-button .arrow-button .arrow {
+    -fx-padding: 0;
+    -fx-shape: "";
+}
+
+.profil-menu-button:hover {
+    -fx-cursor: hand;
+}
+
+.profil-menu-button .context-menu {
+    -fx-background-color: white;
+    -fx-background-insets: 0;
+    -fx-background-radius: 10px;
+    -fx-padding: 8px;
+    -fx-effect: dropshadow(three-pass-box, rgba(0, 0, 0, 0.1), 15, 0, 2, 4);
+}
+
+.profil-menu-button .menu-item {
+    -fx-background-color: transparent;
+    -fx-text-fill: #495057;
+    -fx-padding: 12 15;
+    -fx-border-radius: 8px;
+    -fx-background-radius: 8px;
+}
+
+.profil-menu-button .menu-item:focused {
+    -fx-background-color: #e9ecef;
+    -fx-cursor: hand;
+}
+
+.profil-menu-button .menu-item:focused .label {
+    -fx-text-fill: #2196F3;
+}

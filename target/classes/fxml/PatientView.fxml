@@ -1,9 +1,13 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
+<?import java.lang.String?>
 <?import javafx.scene.control.*?>
 <?import javafx.scene.layout.*?>
-<?import javafx.geometry.Insets?>
 <?import javafx.scene.image.*?>
+<?import javafx.geometry.Insets?>
+<?import javafx.collections.FXCollections?>
+<?import javafx.scene.paint.*?>
+<?import javafx.scene.shape.*?>
 
 <BorderPane fx:id="mainPane" xmlns="http://javafx.com/javafx" xmlns:fx="http://javafx.com/fxml" fx:controller="com.clinic.view.PatientView">
     
@@ -14,6 +18,25 @@
                 <Insets top="15" right="20" bottom="15" left="20"/>
             </padding>
             <Label text="Clinic Management System" styleClass="header-title"/>
+            <Region HBox.hgrow="ALWAYS"/>
+            <MenuButton fx:id="profilMenuButton" styleClass="profil-menu-button">
+                <graphic>
+                    <Circle radius="15">
+                        <fill>
+                            <ImagePattern>
+                                <image>
+                                    <Image url="@/images/default-profile.jpg" />
+                                </image>
+                            </ImagePattern>
+                        </fill>
+                    </Circle>
+                </graphic>
+                <items>
+                    <MenuItem text="Profile" />
+                    <MenuItem text="Settings" />
+                    <MenuItem text="Logout" onAction="#handleLogout" />
+                </items>
+            </MenuButton>
         </HBox>
     </top>
     
@@ -31,8 +54,6 @@
             <Button text="Appointments" styleClass="sidebar-button" maxWidth="Infinity"/>
             <Button text="Medical Records" styleClass="sidebar-button" maxWidth="Infinity"/>
             <Button text="Reports" styleClass="sidebar-button" maxWidth="Infinity"/>
-            <Region VBox.vgrow="ALWAYS"/>
-            <Button text="Logout" styleClass="sidebar-button" maxWidth="Infinity"/>
         </VBox>
     </left>
     
@@ -48,6 +69,8 @@
                 <Label text="Patient Management" styleClass="content-title"/>
                 <Region HBox.hgrow="ALWAYS"/>
                 <Button fx:id="addPatientButton" text="+ Add New Patient" styleClass="primary-button" onAction="#addPatient"/>
+                <Button text="Export Data" styleClass="secondary-button"/>
+                <TextField promptText="Search patients..." styleClass="search-field" prefWidth="200"/>
             </HBox>
             
             <!-- Patient Form (Initially Hidden) -->
@@ -64,14 +87,14 @@
                     <TextField fx:id="nameField" promptText="Full Name" styleClass="form-field" GridPane.columnIndex="1" GridPane.rowIndex="0"/>
                     
                     <DatePicker fx:id="dateOfBirthPicker" promptText="Date of Birth" styleClass="form-field" GridPane.columnIndex="0" GridPane.rowIndex="1"/>
-                    <!-- <ComboBox fx:id="genderCombo" promptText="Select Gender" styleClass="form-field" GridPane.columnIndex="1" GridPane.rowIndex="1">
+                    <ComboBox fx:id="genderCombo" promptText="Select Gender" styleClass="form-field" GridPane.columnIndex="1" GridPane.rowIndex="1">
                         <items>
                             <FXCollections fx:factory="observableArrayList">
                                 <String fx:value="Male"/>
                                 <String fx:value="Female"/>
                             </FXCollections>
                         </items>
-                    </ComboBox> -->
+                    </ComboBox>
                     
                     <TextField fx:id="addressField" promptText="Address" styleClass="form-field" GridPane.columnIndex="0" GridPane.rowIndex="2"/>
                     <TextField fx:id="phoneField" promptText="Phone Number" styleClass="form-field" GridPane.columnIndex="1" GridPane.rowIndex="2"/>
@@ -81,8 +104,8 @@
                 </GridPane>
                 
                 <HBox spacing="10" alignment="CENTER_LEFT">
-                    <Button fx:id="saveButton" text="Save Patient" styleClass="primary-button" />
-                    <Button fx:id="updateButton" text="Update Patient" styleClass="primary-button" />
+                    <Button fx:id="saveButton" text="Save Patient" styleClass="primary-button"/>
+                    <Button fx:id="updateButton" text="Update Patient" styleClass="primary-button"/>
                     <Button fx:id="cancelButton" text="Cancel" styleClass="secondary-button" />
                     <Button fx:id="clearButton" text="Clear Fields" styleClass="secondary-button"/>
                 </HBox>

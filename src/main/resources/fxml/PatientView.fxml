@@ -1,8 +1,13 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
+<?import java.lang.String?>
 <?import javafx.scene.control.*?>
 <?import javafx.scene.layout.*?>
+<?import javafx.scene.image.*?>
 <?import javafx.geometry.Insets?>
+<?import javafx.collections.FXCollections?>
+<?import javafx.scene.paint.*?>
+<?import javafx.scene.shape.*?>
 
 <BorderPane fx:id="mainPane" xmlns="http://javafx.com/javafx" xmlns:fx="http://javafx.com/fxml" fx:controller="com.clinic.view.PatientView">
     
@@ -14,9 +19,24 @@
             </padding>
             <Label text="Clinic Management System" styleClass="header-title"/>
             <Region HBox.hgrow="ALWAYS"/>
-            <Button text="Profile" styleClass="header-button"/>
-            <Button text="Settings" styleClass="header-button"/>
-            <Button text="Logout" styleClass="header-button"/>
+            <MenuButton fx:id="profilMenuButton" styleClass="profil-menu-button">
+                <graphic>
+                    <Circle radius="15">
+                        <fill>
+                            <ImagePattern>
+                                <image>
+                                    <Image url="@/images/default-profile.jpg" />
+                                </image>
+                            </ImagePattern>
+                        </fill>
+                    </Circle>
+                </graphic>
+                <items>
+                    <MenuItem text="Profile" />
+                    <MenuItem text="Settings" />
+                    <MenuItem text="Logout" onAction="#handleLogout" />
+                </items>
+            </MenuButton>
         </HBox>
     </top>
     
@@ -29,13 +49,11 @@
             <Label text="MENU" styleClass="sidebar-title"/>
             <Separator/>
             <Button text="Dashboard" styleClass="sidebar-button" maxWidth="Infinity"/>
-            <Button text="Patients" styleClass="sidebar-button active" maxWidth="Infinity"/>
+            <Button text="Patients" styleClass="sidebar-button-active" maxWidth="Infinity"/>
             <Button text="Doctors" styleClass="sidebar-button" maxWidth="Infinity"/>
             <Button text="Appointments" styleClass="sidebar-button" maxWidth="Infinity"/>
             <Button text="Medical Records" styleClass="sidebar-button" maxWidth="Infinity"/>
             <Button text="Reports" styleClass="sidebar-button" maxWidth="Infinity"/>
-            <Region VBox.vgrow="ALWAYS"/>
-            <Button text="Help" styleClass="sidebar-button" maxWidth="Infinity"/>
         </VBox>
     </left>
     
@@ -86,10 +104,10 @@
                 </GridPane>
                 
                 <HBox spacing="10" alignment="CENTER_LEFT">
-                    <Button fx:id="saveButton" text="Save Patient" styleClass="primary-button" onAction="#addPatient"/>
-                    <Button fx:id="updateButton" text="Update Patient" styleClass="primary-button" onAction="#updatePatient"/>
-                    <Button fx:id="cancelButton" text="Cancel" styleClass="secondary-button" onAction="#hidePatientForm"/>
-                    <Button fx:id="clearButton" text="Clear Fields" styleClass="secondary-button" onAction="#clearFields"/>
+                    <Button fx:id="saveButton" text="Save Patient" styleClass="primary-button"/>
+                    <Button fx:id="updateButton" text="Update Patient" styleClass="primary-button"/>
+                    <Button fx:id="cancelButton" text="Cancel" styleClass="secondary-button" />
+                    <Button fx:id="clearButton" text="Clear Fields" styleClass="secondary-button"/>
                 </HBox>
             </VBox>
             
